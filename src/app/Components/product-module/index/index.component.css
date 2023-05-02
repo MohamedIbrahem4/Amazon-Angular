@@ -1,0 +1,35 @@
+.cardss{
+  background:none;
+  margin-top: -25vh;
+    }
+
+  .card{
+      border-radius: 0px;
+      height: 100%;
+  }
+  .fonte-card{
+      font-size: 21px;
+
+  }
+  .card-a{
+      color: #232f3e;
+  }
+  .card-b{
+      color: #232f3e;
+      font-size: 12px;
+
+  }
+  .card-a:hover{
+      color: #c7511f;
+  }
+  /* .img-card{
+     max-width: 20vw;
+     max-height: 20vw;
+     min-height: 20vw;
+  } */
+  .img-card2{
+      width: 100%;
+      max-width: 100%;
+      min-width: 50%;
+
+  }

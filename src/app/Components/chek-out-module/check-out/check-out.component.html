@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row ">
+
+   <section class="col-12 col-md-8  ">
+<app-stepper [LinearModeSelected]="false">
+  <cdk-step [label]="'Adress'">
+   <app-adress [ChekoutForm]="ChekoutForm"></app-adress>
+  </cdk-step>
+  <cdk-step [label]="'Delivery'">
+    <app-shiping-method [ChekoutForm]="ChekoutForm"></app-shiping-method>
+   </cdk-step>
+   <cdk-step [label]="'Review'">
+    <app-review></app-review>
+   </cdk-step>
+   <cdk-step [label]="'payment'">
+    <app-payment ></app-payment>
+   </cdk-step>
+</app-stepper>
+
+   </section>
+   <aside class="col-12 col-md-4  mb-5">
+<app-sumarry-order></app-sumarry-order>
+   </aside>
+
+
+  </div>
+
+</div>

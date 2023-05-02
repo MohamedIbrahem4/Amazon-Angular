@@ -1,0 +1,480 @@
+<header>
+  <!-- //desktoop// -->
+  <nav id="navcolo" class="navbar p-1 d-none d-md-flex d-lg-flex justify-content-between">
+
+
+
+    <div class="d-flex  ">
+
+    <div class="mt-2">
+  <a href="#" class="">
+        <img  src="assets/LOGO2.png" class="img-fluid" />
+      </a>
+</div>
+
+      <div>
+        <i class="fa-solid fa-location-dot hoba mt-4 mx-2"></i>
+      </div>
+
+      <div class="d-flex flex-column hovee">
+        <span class="fw-light nv1">Deleiver to</span>
+        <span class="fs-6 fw-bold">location</span>
+      </div>
+      <form class="container-fluid" (ngSubmit)="search()">
+        <div class="input-group p-1 mx-2">
+
+          <input
+            id="Search-input"
+            type="text"
+            class="form-control"
+            size="100"
+            placeholder="Search Amazon.eg"
+            aria-label="Search Amazon.eg"
+            aria-describedby="basic-addon1"
+            name="searchname"
+            [(ngModel)]="searchname"
+
+          />
+          <span>
+            <button class="d-flex btn btn-warning bouto2 mx--5" type="submit">
+              <a id="ancorsearch" href="#Search-input"
+                ><i
+                  style="color: black"
+                  class="fa-solid fa-magnifying-glass"
+                ></i
+              ></a>
+
+            </button>
+          </span>
+          <!-- hover of drop down menue -->
+
+        </div>
+      </form>
+      <div class="d-flex  ">
+
+<div class=" dropdown mx-4 mt-3 d-flex">
+            <span><img src="assets/Eg.png" class="img-ico" /></span>
+            <span class="dropdown-toggle fw-bold ">EN</span>
+            <span class="caret"></span>
+            <ul class="dropdown-menu ">
+              <li class="px-2" >
+                <a a (click)="switchToArabic()">
+                  <input
+                  type="radio"
+                  id="html"
+                  name="fav_language"
+                  value="HTML"
+                />
+                <label for="html">العربية-AR</label><br />
+                </a>
+              </li>
+              <hr />
+              <li class="px-2" >
+                <a (click)="switchToEnglish()">
+                  <input
+                  type="radio"
+                  id="html1"
+                  name="fav_language"
+                  value="HTML"
+                />
+                <label for="html1">English-EN</label><br />
+                </a>
+              </li>
+              <hr />
+              <li class="px-2">
+                <span
+                  ><img src="assets/Eg.png" class="img-ico" />
+                  <span
+                    ><p style="font-size: 11px">
+                      you are shopping on Amazon.eg
+                    </p></span
+                  >
+                </span>
+              </li>
+            </ul>
+          </div>
+
+
+      </div>
+
+
+      <div class="d-flex hovee">
+
+<ng-container  *ngIf="(userinfo |async )==null">
+  <div class=" dropdown " >
+    <div class=" mt-3  " >
+    <div class="fw-light fw-bold nv1   " >wellcom,to</div>
+     <div class="fw-light fw-bold nv1 dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false" >Amazon</div>
+    </div>
+    <ul class="dropdown-menu bg-dark p-3">
+      <li><a class="dropdown-item" routerLink="user/sign-up">Sign UP</a></li>
+      <li><a class="dropdown-item" routerLink="/user/Login">Log in</a></li>
+    </ul>
+
+  </div>
+</ng-container>
+<ng-container *ngIf="(userinfo |async) as user">
+  <div class="row  ">
+ <!-- <div class="fw-light fw-bold nv1 mt-2  " >Hello, </div>
+<div class="fw-light fw-bold nv1 " >{{user.username}}</div> -->
+<div class="dropdown  ">
+  <!-- <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+   Hello, <br>
+   {{user.username}}
+  </button> -->
+  <div class="  mt-3" >
+  <div class="fw-light fw-bold nv1   " >Hello, </div>
+  <div class="fw-light fw-bold nv1 dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false" >{{user.username}}</div>
+
+  </div>
+<ul class="dropdown-menu bg-dark p-3">
+    <li><a class="dropdown-item" routerLink="/user/EditProfile">Profile</a></li>
+    <li><a class="dropdown-item" routerLink="/Orders">Orders</a></li>
+    <li><a class="dropdown-item" (click)="Logout()" id="tee">log Out</a></li>
+  </ul>
+
+</div>
+  </div>
+
+</ng-container>
+<!-- <div *ngIf="(userinfo |async) as user">
+  {{user}}
+</div> -->
+        <!-- <div class="fw-bold" style="font-size: 12px">Account & Lists
+        </div> -->
+      </div>
+
+      <div class="mx-4 mt-4">
+        <a routerLink="/Orders" class="fw-bold text-decoration-none">Orders</a>
+      </div>
+
+      <div class="" >
+        <a routerLink="/basket" class="text-decoration-none">
+          <ng-container *ngIf="(basketinfo |async) as basket">
+             <span class="fw-bold ms-2 text-warning">{{getcount(basket.items)}}</span>
+        <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+          </ng-container>
+          <ng-container *ngIf="(basketinfo |async) == null">
+            <span class="fw-bold ms-2 text-warning">0</span>
+       <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+         </ng-container>
+
+
+        </a>
+
+      </div>
+    </div>
+  </nav>
+  <!-- mobile -->
+  <nav id="navcolo" class="p-1 d-md-none d-lg-none">
+    <div class="d-flex justify-content-between">
+      <div>
+        <a href="#" class="hovee m">
+          <img id="" src="assets/LOGO2.png" class="img-fluid" alt="" />
+        </a>
+      </div>
+
+      <!-- <div class="d-flex flex-column hovee" style="margin-left: -13vw;" >
+              <span class="fw-light nv1">Deleiver to</span>
+              <span class="fs-6 fw-bold ">location</span>
+              </div> -->
+      <div class="d-flex">
+        <div class=" " >
+          <a routerLink="/basket" class="text-decoration-none d-flex flex-column">
+            <ng-container *ngIf="(basketinfo |async) as basket">
+               <span class="fw-bold ms-2 text-warning">{{getcount(basket.items)}}</span>
+          <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+            </ng-container>
+            <ng-container  *ngIf="(basketinfo |async) ==null">
+              <span class="fw-bold ms-2 text-warning">0</span>
+         <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+           </ng-container>
+
+
+          </a>
+
+        </div>
+        <div class="mx-2 mt-3">
+          <a class="">
+            <a
+              href="#"
+              class="text-decoration-none fw-bold"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasScrolling"
+              aria-controls="offcanvasScrolling"
+              ><i class="fa-solid fa-bars px-1"></i>All</a
+            >
+            <div
+              class="offcanvas offcanvas-start"
+              data-bs-scroll="true"
+              data-bs-backdrop="false"
+              tabindex="-1"
+              id="offcanvasScrolling"
+              aria-labelledby="offcanvasScrollingLabel"
+            >
+              <div class="offcanvas-header" style="background-color: #232f3e">
+                <h2 class="offcanvas-title" id="offcanvasScrollingLabel" style="color: white;">
+                  Amazon
+                </h2>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="d-flex flex-column vstack gap-4">
+                  <div class=" fs-6 vstack ms-2 gap-1 mt-3">
+                    <li class="mx-">
+                     <a routerLink="/Home" class="text-decoration-none text-dark">Home</a>
+                   </li>
+                   <li class="mx-">
+                     <a routerLink="/Products" class="text-decoration-none text-dark"
+                       >All Products</a
+                     >
+                   </li>
+                   <li class="mx-" *ngIf="(userinfo|async)  " >
+                    <a routerLink="/Orders" class="text-decoration-none text-dark"
+                      >Orders</a
+                    >
+                  </li>
+                  <li class="mx-" *ngIf="(userinfo|async)  " >
+                    <a routerLink="/user/EditProfile" class="text-decoration-none text-dark"
+                      >Edit Your Profile</a
+                    >
+                  </li>
+                  </div>
+
+                   <hr>
+
+                   <div class="fs-6 vstack gap-1 ms-2">
+                      <li class="mx-">
+                     <a href="/contactus" class="text-decoration-none text-dark"
+                       >Help</a
+                     >
+                   </li>
+                     <li class="mx-">
+                     <a href="aboutus" class="text-decoration-none text-dark"
+                       >About us</a
+                     >
+                   </li>
+
+                   </div>
+
+
+
+
+                   <hr>
+                   <div class="fw-bold vstack gap-2 ms-2">
+                     <li class="mx-" *ngIf="(userinfo|async)  " >
+                     <a (click)="Logout()"  class="text-decoration-none text-dark" routerLink="/user/Login"
+                       >Sign Out</a
+                     >
+                   </li>
+                   <li class="mx-" *ngIf="(userinfo|async) ==null  " >
+                     <a routerLink="/user/sign-up" class="text-decoration-none text-dark"
+                       >sign Up</a
+                     >
+                   </li>
+
+                   <li class="mx-" *ngIf="(userinfo|async) ==null  " >
+                     <a routerLink="/user/Login" class="text-decoration-none text-dark"
+                       >Login</a
+                     >
+                   </li>
+                   </div>                </ul>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <form class="container-fluid" (ngSubmit)="search()">
+      <div class="input-group p-1 mx-2">
+
+        <input
+          id="Search-input"
+          type="text"
+          class="form-control"
+          size="100"
+          placeholder="Search Amazon.eg"
+          aria-label="Search Amazon.eg"
+          aria-describedby="basic-addon1"
+          name="searchname"
+          [(ngModel)]="searchname"
+
+        />
+        <span>
+          <button class="d-flex btn btn-warning bouto2 mx--5" type="submit">
+            <a id="ancorsearch" href="#Search-input"
+              ><i
+                style="color: black"
+                class="fa-solid fa-magnifying-glass"
+              ></i
+            ></a>
+
+          </button>
+        </span>
+        <!-- hover of drop down menue -->
+
+      </div>
+    </form>
+  </nav>
+  <!-- nav2 -->
+  <!-- desktop -->
+  <nav class="navigator d-none d-md-none d-lg-block d-xl-block d-xxl-block">
+    <div>
+      <ul class="d-flex align-items-center justify-content-evenly">
+        <li class="mx-">
+          <a
+            href="#"
+            class="text-decoration-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#staticBackdrop"
+            aria-controls="staticBackdrop"
+          >
+            <i class="fa-solid fa-bars px-1"></i>{{'All'|translate}}
+          </a>
+
+          <div
+            class="offcanvas offcanvas-start"
+            data-bs-backdrop="static"
+            tabindex="-1"
+            id="staticBackdrop"
+            aria-labelledby="staticBackdropLabel"
+          >
+            <div class="offcanvas-header" style="background-color: #232f3e">
+              <h2
+                class="offcanvas-title"
+                id="staticBackdropLabel"
+                style="color: aliceblue"
+              >
+                {{'Amazon'|translate}}
+            </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                <ul class="d-flex flex-column vstack gap-4">
+                  <!-- <li class="">
+                    <a href="#" class="text-decoration-none text-dark" *ngIf="user.CurrentUser$ |async as user">hello{{user.username}}</a>
+                  </li> -->
+
+                 <div class=" fs-6 vstack ms-2 gap-1 mt-3">
+                   <li class="mx-">
+                    <a routerLink="/Home" class="text-decoration-none text-dark"> {{'Home'|translate}}
+                    </a>
+                  </li>
+                  <li class="mx-">
+                    <a routerLink="/Products" class="text-decoration-none text-dark"
+                      > {{'All Products'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-" *ngIf="(userinfo|async)  " >
+                    <a routerLink="/user/EditProfile" class="text-decoration-none text-dark"
+                      >{{'Edit Your Profile'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-" *ngIf="(userinfo|async)  " >
+                    <a routerLink="/WishList" class="text-decoration-none text-dark"
+                      >{{'wishList'|translate}}</a
+                    >
+                  </li>
+                 </div>
+
+                  <hr>
+
+                  <div class="fs-6 vstack gap-1 ms-2">
+                     <li class="mx-">
+                    <a href="/contactus" class="text-decoration-none text-dark"
+                      >{{'Help'|translate}}</a
+                    >
+                  </li>
+                    <li class="mx-">
+                    <a href="aboutus" class="text-decoration-none text-dark"
+                      >{{'About us'|translate}}</a
+                    >
+                  </li>
+
+                  </div>
+
+
+
+
+                  <hr>
+                  <div class="fw-bold vstack gap-2 ms-2">
+                    <li class="mx-" *ngIf="(userinfo|async)  " >
+                    <a (click)="Logout()"  class="text-decoration-none text-dark" routerLink="/user/Login"
+                      >{{'Sign Out'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-" *ngIf="(userinfo|async) ==null  " >
+                    <a routerLink="/user/sign-up" class="text-decoration-none text-dark"
+                      >{{'sign Up'|translate}}</a
+                    >
+                  </li>
+
+                  <li class="mx-" *ngIf="(userinfo|async) ==null  " >
+                    <a routerLink="/user/Login" class="text-decoration-none text-dark"
+                      >{{'Login'|translate}}</a
+                    >
+                  </li>
+                  </div>
+
+                </ul>
+                .
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mx-">
+          <a routerLink="/WishList" class="text-decoration-none">{{'wishList'|translate}}</a>
+
+        </li>
+        <li class="mx-">
+          <a href="#" class="text-decoration-none"></a>
+          <div class="dropdown">
+            <span class="dropdown-toggle fw-bold">{{'Prime'|translate}}</span>
+            <ul class="dropdown-menu">
+              <li class="px-2">
+                <img src="assets/Images/headddd.jpg" alt="" />
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="mx-">
+          <a href="/Home" class="text-decoration-none">{{'Home'|translate}}</a>
+        </li>
+
+        <li class="mx-">
+          <a routerLink="/Products" class="text-decoration-none">{{'Products'|translate}}</a>
+        </li>
+        <li class="mx-">
+          <a href="/aboutus" class="text-decoration-none">{{'AboutUs'|translate}}</a>
+        </li>
+        <li class="mx-">
+          <a href="/contactus" class="text-decoration-none">{{'ContactUs'|translate}}</a>
+        </li>
+
+        <li class="">
+          <img id="" class="img-fluid" src="assets/nav-img.jpg" alt="" />
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div class="d-flex align-items-center ">
+
+        <a href="#"><i class="fa-solid fa-bars mx-1 "></i>All</a>
+      </div> -->
+  </nav>
+  <!-- mobile -->
+
+</header>

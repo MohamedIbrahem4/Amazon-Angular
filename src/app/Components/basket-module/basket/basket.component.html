@@ -1,0 +1,95 @@
+
+
+<body>
+
+<div class="container-fluid   ">
+    <div class="row p-0 m-0">
+
+  <div class="col-sm-12  col-md-12 col-lg-9  shadow p-3 mb-5 cart rounded  mt-4">
+    <div class=" d-flex justify-content-between">
+      <div class="fs-1 fw-bold">
+       {{'Shopping Cart'|translate}}
+      </div>
+      <div class="mt-3  fs-5  fw-bold">
+      {{'price'|translate}}
+      </div>
+    </div>
+        <hr class="style1">
+
+<ng-container  *ngIf="(basketitem |async) as basket">
+
+
+  <div *ngFor="let item of basket.items">
+<div class="d-flex justify-content-between ms-5 mt-4  " >
+
+    <div class="imagee ">
+
+    <img src="{{item.image[0]}}" class="">
+    </div>
+    <div class="d-flex flex-column justify-content-start ms-5 mt-4">
+      <h4>
+        {{item.name |slice :0:30}}
+      </h4>
+      <div class="d-flex mt-3  ">
+        <a  class="me-3 clik"><i class="fa-solid fa-plus" (click)="inccrementitem(item)"></i></a>
+
+        <p class="fw-bold "> {{item.quantity}}</p>
+        <a  class="ms-3 clik" [hidden]="item.quantity > item.quantity"><i class="fa-solid fa-minus" (click)="removeitem(item.id,1)" ></i></a>
+        <a  class="text-decoration-none ms-5">
+        <!-- <p class="fw-bold te"> Delete</p> -->
+        </a>
+
+
+      </div>
+    </div>
+    <div class="  mt-3    ">
+      <div  class="ms-5 mb-1 fs-5 fw-bold">{{item.price|currency}}</div>
+      <div class="ms-5 mt-3 fw-bold">
+         <a  class="text-decoration-none  ">
+        <!-- <p class="fw-bold te" (click)="removeitem(item.id,item.quantity)"> Remove</p> -->
+        <a class="clik ms-5 "><i class="fa-solid fa-trash-can " (click)="removeitem(item.id,item.quantity)"></i></a>
+        </a>
+      </div>
+
+      </div>
+  </div>
+  <hr class="style2">
+
+  </div>
+
+
+
+
+
+</ng-container>
+
+
+<ng-container  *ngIf="(basketitem |async) ==null">
+
+
+ <div class=" fs-1">
+  Your Cart is Embty
+ </div>
+
+
+
+
+
+</ng-container>
+
+  </div>
+
+<div class="col-12 col-md-12 col-lg-3  " >
+<app-sumarry-order></app-sumarry-order>
+<div class="d-grid mt-1 mb-5 " *ngIf="(basketitem |async)">
+  <button routerLink="/CheckOut" type="button" class="btn btn-success fw-bold">Proceed Check Out</button>
+
+</div>
+</div>
+
+    </div>
+  </div>
+
+</body>
+
+

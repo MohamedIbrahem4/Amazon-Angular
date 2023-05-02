@@ -1,0 +1,129 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row d-flex justify-content-center align-items-center" >
+    <div class="fs-1 fw-bold shadow p-3 mb-5  rounded  mt-4 col-12" >
+      Edite Profile
+
+    </div>
+    <div  [formGroup]="EditProfile" class="col-12 col-md-6 col-lg-6  ">
+
+      <form formGroupName="InfoForm" class="row  shadow p-3 mb-5 bg-body-tertiary rounded">
+ <div class="fs-4 fw-bold mb-3 fontee">
+        You can edite your information here
+      </div>
+
+        <div class="form-group mt-2  col-6">
+          <label for="FirstName" class="form-label fw-bold"> First Name</label>
+          <input type="text" class="form-control" id="FirstName" name="FirstName" formControlName="firstName"
+            [class.is-invalid]="FirstName?.invalid && FirstName?.touched" >
+          <div class="invalid-feedback" [hidden]="FirstName?.valid||FirstName?.untouched">
+            <div *ngIf="FirstName?.errors?.['required']">Please write your first name</div>
+            <div *ngIf="FirstName?.errors?.['minlength']">First name length must be more than 3 charchter</div>
+
+         </div>
+        </div>
+        <div class="form-group mt-2  col-6">
+          <label for="LastName" class="form-label fw-bold"> Last Name</label>
+          <input type="text" class="form-control" id="LastName" name="LastName" formControlName="lastName"
+            [class.is-invalid]="LastName?.invalid && LastName?.touched">
+          <div class="invalid-feedback" [hidden]="LastName?.valid||LastName?.untouched">
+            <div *ngIf="LastName?.errors?.['required']">Please write your Last Name</div>
+            <div *ngIf="LastName?.errors?.['minlength']">Last name length must be more than 3 charchter</div>
+
+         </div>
+        </div>
+        <div class="form-group mt-2  col-6">
+          <label for="UserName" class="form-label fw-bold"> User Name</label>
+          <input type="text" class="form-control" id="UserName" name="UserName" formControlName="userName"
+            [class.is-invalid]="UserName?.invalid && UserName?.touched">
+          <div class="invalid-feedback" [hidden]="UserName?.valid||UserName?.untouched">
+            <div *ngIf="UserName?.errors?.['required']">Please write your User Name</div>
+            <div *ngIf="UserName?.errors?.['minlength']">User name length must be more than 3 charchter</div>
+
+         </div>
+        </div>
+        <div class="form-group mt-2  col-6">
+          <label for="Email" class="form-label fw-bold"> Email</label>
+          <input type="text" class="form-control" id="Email" name="Email" formControlName="email"
+            [class.is-invalid]="Email?.invalid && Email?.touched">
+          <div class="invalid-feedback" [hidden]="Email?.valid||Email?.untouched">
+            <div *ngIf="Email?.errors?.['required']">Please write your Email</div>
+            <div *ngIf="Email?.errors?.['minlength']">Email length must be more than 3 charchter</div>
+            <div *ngIf="Email?.errors?.['pattern']">Inavlid Email</div>
+
+
+         </div>
+        </div>
+        <button type="button" class="btn btn-success mb-3 mt-4 col-4" [disabled]="!EditProfile.get('InfoForm')?.valid" (click)="Update()" >Safe your  Changes</button>
+        <div class="alert alert-success d-flex col-5 p-2 mt-3 justify-content-start col-12" role="alert" *ngIf="message">
+          <div>
+              <i class="fa-solid fa-circle-check"></i>
+
+          </div>
+        <div class="ms-2">
+          {{message}}
+        </div>
+
+        </div>
+      </form>
+
+      <form formGroupName="PaswwordForm" class="row d-flex justify-content-center align-items-center  shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="fs-4 fw-bold mb-3 fontee">
+               You can change your Password here
+             </div>
+
+               <div class="form-group mt-2  col-7">
+                 <label for="UserName2" class="form-label fw-bold"> User Name</label>
+                 <input type="text" class="form-control" id="UserName2" name="UserName2" formControlName="UserName"
+                   [class.is-invalid]="UserName2?.invalid && UserName2?.touched">
+                 <div class="invalid-feedback" [hidden]="UserName2?.valid||UserName2?.untouched">
+                   <div *ngIf="UserName2?.errors?.['required']">Please write your User Name</div>
+                </div>
+               </div>
+               <div class="form-group mt-2  col-7">
+                 <label for="CurrentPassword" class="form-label fw-bold"> Current Password</label>
+                 <input type="password" class="form-control" id="CurrentPassword" name="CurrentPassword" formControlName="CurrentPassword"
+                   [class.is-invalid]="CurrentPassword?.invalid && CurrentPassword?.touched">
+                 <div class="invalid-feedback" [hidden]="CurrentPassword?.valid||CurrentPassword?.untouched">
+                   <div *ngIf="CurrentPassword?.errors?.['required']">Please write your Current Password</div>
+                </div>
+               </div>
+               <div class="form-group mt-2  col-7">
+                 <label for="NewPassword" class="form-label fw-bold"> New Password</label>
+                 <input type="password" class="form-control" id="NewPassword" name="NewPassword" formControlName="NewPassword"
+                   [class.is-invalid]="NewPassword?.invalid && NewPassword?.touched">
+                 <div class="invalid-feedback" [hidden]="NewPassword?.valid||NewPassword?.untouched">
+                   <div *ngIf="NewPassword?.errors?.['required']">Please write your New Password</div>
+                </div>
+               </div>
+               <div class="form-group mt-2  col-7">
+                 <label for="ConfirmNewPassword" class="form-label fw-bold"> Confirm New Password</label>
+                 <input type="password" class="form-control" id="ConfirmNewPassword" name="ConfirmNewPassword" formControlName="ConfirmNewPassword"
+                   [class.is-invalid]="ConfirmNewPassword?.invalid && ConfirmNewPassword?.touched">
+                 <div class="invalid-feedback" [hidden]="ConfirmNewPassword?.valid||ConfirmNewPassword?.untouched">
+                   <div *ngIf="ConfirmNewPassword?.errors?.['required']">Please Confirm New Password</div>
+                   <div *ngIf="ConfirmNewPassword?.errors?.['confirmPasswordValidator']">Passwords do not match.</div>
+
+                </div>
+               </div>
+               <button type="button" class="btn btn-success mb-3 mt-4 col-6 " [disabled]="!EditProfile.get('PaswwordForm')?.valid" (click)="ChgPss()" >Change your  Password</button>
+               <div class="alert alert-success d-flex col-5 p-2 mt-3 justify-content-start col-12" role="alert" *ngIf="message2">
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+              <div class="ms-2">
+                {{message2}}
+              </div>
+
+              </div>
+             </form>
+
+    </div>
+
+  </div>
+
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,104 @@
+*{
+  font-family: inherit;
+  /* color: aliceblue; */
+  /* font-size: 1rem; */
+padding: 0px;
+margin: 0px;
+box-sizing: border-box;
+
+
+}
+
+
+
+
+.hoba{
+  color: aliceblue;
+}
+#navcolo{
+  background-color: rgb(25, 25, 31);
+      color: aliceblue;
+
+}
+#imglogo{
+  width: 6vw;
+}
+.nv1{
+  font-size: 11px;
+  margin-top: 5px;
+  position: relative;
+}
+.buto1{
+  background-color: rgb(234, 233, 233);
+  border-radius: 4px 0px 0px 4px;
+  color: rgb(39, 39, 39);
+}
+
+
+
+#bo:hover{
+  background-color: rgb(197, 192, 192);
+  color: black;
+
+
+}
+#tee{
+  cursor: pointer;
+}
+option{
+  color: black;
+}
+option:hover{
+  color: aliceblue;
+  background-color: rgb(108, 105, 102);
+}
+
+.bouto2{
+  border-radius: 0px 4px 4px 0px;
+
+}
+#ancorsearch{
+  font-size: 25px;
+  margin-left: 5px;
+  margin-top: 1px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.img-ico{
+  width: 1.2vw;
+  height: 1em;
+}
+
+a{
+  color: white;
+}
+
+.navigator{
+  background-color:#232f3e;
+  color: white;
+
+}
+li{
+  list-style: none;
+}
+ul{
+  padding: 0;
+}
+#img-nav3{
+ width: 23vw;
+}
+
+li:hover{
+  border-width: 1px;
+  border-color: white;
+  border-style: solid;
+}
+.hovee:hover{
+  border-width: 1px;
+
+  border-color: white;
+  border-style: solid;
+}

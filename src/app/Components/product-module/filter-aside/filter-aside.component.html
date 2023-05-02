@@ -1,0 +1,75 @@
+<div class=" container-fluid shadow-lg p-3 mb-5 mt-1 bg-body-tertiary rounded">
+<div class="row">
+  <div >
+    <div>
+      <h6>{{"Fulfilled by"|translate}}</h6>
+      <input type="checkbox" id="" value="">
+      <label for="">{{"Fulfilled by Amazon"|translate}}</label>
+    </div>
+    <br>
+    <div class="d-flex flex-column">
+      <div>
+        <label for="category " class="fw-bold  mb-2 ">{{"category"|translate}}</label>
+      </div>
+     <div>
+            <i class="fa-solid fa-angle-right mx-1"></i>
+
+     </div>
+    </div>
+
+    <div>
+      <ng-container *ngFor="let item of category" >
+        <div class="form-check mb-3 ms-3" *ngIf="currentLanguage == 'en'">
+          <input #cat class="form-check-input " type="radio" name="category" value="{{item.id}}" id="{{item.nameEN}}" (change)="SendCategoryURL(cat.value)" >
+        <h6>  <label class="form-check-label " for="{{item.nameEN}}">
+            {{item.nameEN}}
+          </label></h6>
+        </div>
+
+        <div class="form-check mb-3 ms-3" *ngIf="currentLanguage == 'ar'">
+          <input #cat class="form-check-input " type="radio" name="category" value="{{item.id}}" id="{{item.nameEN}}" (change)="SendCategoryURL(cat.value)" >
+        <h6>  <label class="form-check-label " for="{{item.nameAR}}">
+            {{item.nameAR}}
+          </label></h6>
+        </div>
+
+
+      </ng-container>
+
+    </div>
+    <br>
+    <div class="d-flex flex-column">
+      <div>
+        <label for="category " class="fw-bold  mb-2 ">{{"Brands"|translate}}</label>
+      </div>
+     <div>
+            <i class="fa-solid fa-angle-right mx-1"></i>
+
+     </div>
+    </div>
+    <ng-container *ngFor="let item of Brands" >
+      <div class="form-check mb-3 ms-3" *ngIf="currentLanguage == 'en'">
+        <input #Bran class="form-check-input " type="radio" name="Brand" value="{{item.id}}" id="{{item.nameEN}}b" (change)="SendBrandURL(Bran.value)" >
+      <h6>  <label class="form-check-label " for="{{item.nameEN}}b">
+          {{item.nameEN}}
+        </label></h6>
+      </div>
+
+
+      <div class="form-check mb-3 ms-3" *ngIf="currentLanguage == 'ar'">
+        <input #Bran class="form-check-input " type="radio" name="Brand" value="{{item.id}}" id="{{item.nameEN}}b" (change)="SendBrandURL(Bran.value)" >
+      <h6>  <label class="form-check-label " for="{{item.nameEN}}b">
+          {{item.nameAR}}
+        </label></h6>
+      </div>
+
+    </ng-container>
+
+
+  </div>
+
+</div>
+
+
+
+</div>

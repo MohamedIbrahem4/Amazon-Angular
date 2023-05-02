@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <div class="row">
+    <app-filter-aside class="d-none d-md-flex d-lg-flex  col-md-3 col-lg-2 col-sm-2"></app-filter-aside>
+
+    <section class="col-sm-12 col-md-9 col-lg-10">
+      <div class="container">
+        <div class="row   " *ngIf="productByCategory">
+          <ng-container *ngFor="let item of productByCategory | paginate
+          : {
+              id: 'Products',
+              itemsPerPage: 8,
+              currentPage: page,
+              totalItems: totalLength
+            }; ">
+            <div class="col-6 col-md-6 col-lg-3 ">
+              <div class="card shadow-sm   mt-5">
+                <div class="card-body p-3 align-items-center">
+                  <div class=""  >
+                    <div class="  " >
+                      <div class="fs-4 fw-bold d-flex ch-col-name" *ngIf="currentLanguage == 'en'">
+                        {{item.nameEN | slice:0:15}}
+                        <div *ngIf="item.nameEN.length >20" class="ch-col-name">...</div>
+                      </div>
+                      <div class="fs-4 fw-bold d-flex ch-col-name" *ngIf="currentLanguage == 'ar'">
+                        {{item.nameAR | slice:0:15}}
+                        <div *ngIf="item.nameAR.length >20" class="ch-col-name">...</div>
+                      </div>
+                      <div class="container-fluid ihner">
+                                            <img src="{{item.images[0]}}" class=" card-img-top"   #img />
+
+                      </div>
+                  </div>
+                  <!-- <img src="{{item.images}}" class="img-fluid card-img-top"   #img /> -->
+
+                  <!-- <div class="mt-3 d-flex flex-column  " >
+                    <div class="fs-3 fw-bold">
+                      {{item.name}}
+                    </div> -->
+
+
+                    <div class="fw-bold d-flex  justify-content-between mt-2 mb-2">
+
+                    <!-- <div>
+                           <p class="card-text ">
+                    </p>
+                    </div> -->
+                    <span>
+                                            {{item.price |currency :"EGP" }}
+
+                    </span>
+                    <span>
+                      Items in shop :{{  item.quantity  }}
+
+                    </span>
+                    <!-- <div class="d-flex fw-bold">
+                      <p>
+                        Items in shop :
+                      </p>
+                       <p>
+                      {{  item.quantity  }}
+                    </p>
+                    </div> -->
+                    </div>
+
+
+
+                    <div class="d-flex justify-content-between ">
+                      <div class="btn-group">
+                        <button type="button" (click)="VeiwProduct(item.id)" class="btn btn-sm  card__buy">
+                          View
+                        </button>
+
+                      </div>
+                       <div class="card__buy" (click)="AddProductToBasket(item)">
+                          Add to Cart <i class="fas fa-shopping-cart" ></i>
+                        </div>
+
+                        <div class="card__buy text-center" (click)="AddProductToWishList(item.id)">
+                          <i class="fa-regular fa-heart fs-5"></i>
+                       </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <pagination-controls
+          class="text-center my-pagination text-bold mt-4 mb-3"
+          id="Products"
+          (pageChange)="page = $event"
+          screenReaderPageLabel="page"
+          screenReaderCurrentLabel="You're on page"
+          style="color: rgb(39, 139, 233); width: 100%; height: 70px"
+        >
+        </pagination-controls>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

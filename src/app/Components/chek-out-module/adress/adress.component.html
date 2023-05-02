@@ -1,0 +1,112 @@
+<div class="row  mb-5 mt-3" *ngIf="ChekoutForm"  [formGroup]="ChekoutForm">
+<div class="d-flex justify-content-between ">
+  <h6>{{'Shopping Adress'|translate}}</h6>
+  <button type="button" class="btn btn-success mb-3" [disabled]="!ChekoutForm.get('adressform')?.valid" (click)="SafeUserAddress()">Save your Adress</button>
+
+</div>
+<div class="alert alert-success d-flex col-5 p-2 mt-3 justify-content-start " role="alert" *ngIf="message">
+  <div>
+      <i class="fa-solid fa-circle-check"></i>
+
+  </div>
+<div class="ms-2">
+  congratulation your Adress is Adedd.
+</div>
+
+</div>
+
+<form #dressform="ngForm" class="row" formGroupName="adressform">
+  <div class="form-group mt-2  col-6">
+    <label for="AddressEN1" class="form-label"> Adress 1 in English</label>
+    <input type="text" class="form-control" id="AddressEN1" name="AddressEN1" formControlName="AddressEN1"
+      [class.is-invalid]="adress.AddressEN1?.invalid && adress.AddressEN1?.touched">
+    <div class="invalid-feedback" [hidden]="adress.AddressEN1?.valid||adress.AddressEN1?.untouched">
+      <div *ngIf="adress.AddressEN1?.errors?.['required']">Please write your first adress in English</div>
+   </div>
+  </div>
+  <div class="form-group mt-2 col-6">
+    <label for="AddressAR1" class="form-label">Adress 1 in Arabic</label>
+    <input type="text" class="form-control" id="AddressAR1" name="AddressAR1" formControlName="AddressAR1"
+      [class.is-invalid]="adress.AddressAR1?.invalid && adress.AddressAR1?.touched">
+    <div class="invalid-feedback" [hidden]="adress.AddressAR1?.valid||adress.AddressAR1?.untouched">
+      <div *ngIf="adress.AddressAR1?.errors?.['required']">Please write your first adress in Arabic</div>
+   </div>
+  </div>
+  <div class="form-group mt-2 col-6">
+    <label for="AddressEN2" class="form-label">Adress 2 in English</label>
+    <input type="text" class="form-control" id="AddressEN2" name="AddressEN2" formControlName="AddressEN2"
+      [class.is-invalid]="adress.AddressEN2?.invalid && adress.AddressEN2?.touched">
+    <div class="invalid-feedback" [hidden]="adress.AddressEN2?.valid||adress.AddressEN2?.untouched">
+      <div *ngIf="adress.AddressEN2?.errors?.['required']">Please write your second adress in English</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-6">
+    <label for="AddressAR2" class="form-label">Adress 2  in Arabic</label>
+    <input type="text" class="form-control" id="AddressAR2" name="AddressAR2" formControlName="AddressAR2"
+      [class.is-invalid]="adress.AddressAR2?.invalid && adress.AddressAR2?.touched">
+    <div class="invalid-feedback" [hidden]="adress.AddressAR2?.valid||adress.AddressAR2?.untouched">
+      <div *ngIf="adress.AddressAR2?.errors?.['required']">Please write your second adress in Arabic</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-4">
+    <label for="Country" class="form-label">Country</label>
+    <input type="text" class="form-control" id="Country" name="Country" formControlName="Country"
+      [class.is-invalid]="adress.Country?.invalid && adress.Country?.touched">
+    <div class="invalid-feedback" [hidden]="adress.Country?.valid||adress.Country?.untouched">
+      <div *ngIf="adress.Country?.errors?.['required']">Please write your Country</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-4">
+    <label for="City" class="form-label">City</label>
+    <input type="text" class="form-control" id="City" name="City" formControlName="City"
+      [class.is-invalid]="adress.City?.invalid && adress.City?.touched">
+    <div class="invalid-feedback" [hidden]="adress.City?.valid||adress.City?.untouched">
+      <div *ngIf="adress.City?.errors?.['required']">Please write your City</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-4">
+    <label for="Region" class="form-label">Region</label>
+    <input type="text" class="form-control" id="Region" name="Region" formControlName="Region"
+      [class.is-invalid]="adress.Region?.invalid && adress.Region?.touched">
+    <div class="invalid-feedback" [hidden]="adress.Region?.valid||adress.Region?.untouched">
+      <div *ngIf="adress.Region?.errors?.['required']">Please write your Region</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-4">
+    <label for="StreetNumber" class="form-label">StreetNumber</label>
+    <input type="text" class="form-control" id="StreetNumber" name="StreetNumber" formControlName="StreetNumber"
+      [class.is-invalid]="adress.StreetNumber?.invalid && adress.StreetNumber?.touched">
+    <div class="invalid-feedback" [hidden]="adress.StreetNumber?.valid||adress.StreetNumber?.untouched">
+      <div *ngIf="adress.StreetNumber?.errors?.['required']">Please write your StreetNumber</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-4">
+    <label for="UnitNumber" class="form-label">UnitNumber</label>
+    <input type="text" class="form-control" id="UnitNumber" name="UnitNumber" formControlName="UnitNumber"
+      [class.is-invalid]="adress.UnitNumber?.invalid && adress.UnitNumber?.touched">
+    <div class="invalid-feedback" [hidden]="adress.UnitNumber?.valid||adress.UnitNumber?.untouched">
+      <div *ngIf="adress.UnitNumber?.errors?.['required']">Please write your UnitNumber</div>
+   </div>
+  </div>
+  <div class="form-group mt-2  col-2">
+    <label for="PostCode" class="form-label">PostCode</label>
+    <input type="text" class="form-control" id="PostCode" name="PostCode" formControlName="PostCode"
+      [class.is-invalid]="adress.PostCode?.invalid && adress.PostCode?.touched">
+    <div class="invalid-feedback" [hidden]="adress.PostCode?.valid||adress.PostCode?.untouched">
+      <div *ngIf="adress.PostCode?.errors?.['required']">write your PostCode</div>
+   </div>
+  </div>
+
+
+</form>
+
+
+<div class="d-flex justify-content-between flex-row mt-3 mb-5">
+  <button type="button" class="btn btn-primary" routerLink="/basket"><i class="fa fa-angle-left me-2"></i>Back To basket</button>
+  <button type="button" class="btn btn-primary" cdkStepperNext>Go To Deleviry<i class="fa fa-angle-right ms-2"></i></button>
+
+
+</div>
+</div>
+
+

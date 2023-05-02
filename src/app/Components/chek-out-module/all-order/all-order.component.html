@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row mb-5">
+    <div class="fs-1 fw-bold shadow p-3 mb-5  rounded  mt-4 m">
+      All Orders
+
+    </div>
+    <div class="fs-5 fw-bold mb-3">
+      You can see your all Order here
+      <span class="text-warning-emphasis">{{name}}</span>
+    </div>
+    <table class="table " >
+
+
+      <thead>
+        <tr>
+          <th scope="col-6">Number</th>
+          <th scope="col-2">Date</th>
+          <th scope="col-2">Total</th>
+          <th scope="col-2">Staus</th>
+          <th scope="col-2">Details</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let order of OrderDetails;let i = index" >
+        <tr>
+          <th >
+            {{i+1}}
+          </th>
+          <td class="col-3 ">
+            <div class="">
+              {{order.date | date : 'yyyy-MM-dd'}}
+            </div>
+
+           </td>
+          <td class="col-3">{{order.total |currency:" EGP"}}</td>
+          <td class="col-3 text-success-emphasis " >{{order.status }}</td>
+           <td class="clik">
+          <a (click)="OderId(order.id)" class="fw-bold text-decoration-none ">Detalis</a>
+
+           </td>
+        </tr>
+
+
+      </tbody>
+    </table>
+
+
+  </div>
+
+  <br>
+  <b>
+
+  </b>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+</div>
+

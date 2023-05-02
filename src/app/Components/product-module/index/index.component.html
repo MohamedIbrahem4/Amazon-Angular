@@ -1,0 +1,148 @@
+<!-- //////////////////////////////////////////////////////////////////////////// -->
+<section>
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1" aria-current="true"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="3" aria-label="Slide 4" class=""></button>
+
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <!-- <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="var(--bs-secondary-color)"></rect></svg> -->
+        <div>
+          <img src="assets/Images/slide1.jpg" class="img-fluid">
+        </div>
+
+      </div>
+      <div class="carousel-item">
+        <div>
+          <img src="assets/Images/slide2.jpg" class="img-fluid">
+        </div>
+
+      </div>
+      <div class="carousel-item">
+        <div>
+          <img src="assets/Images/slide3.jpg" class="img-fluid">
+        </div>
+
+      </div>
+      <div class="carousel-item">
+        <div>
+          <img src="assets/Images/slide4.jpg" class="img-fluid">
+        </div>
+
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+</section>
+<!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+<div class="container-fluid cardss ">
+
+
+  <div class="row">
+
+    <!-- <div class="col-sm-6  col-md-4 col-lg-3 mt-5 mb-5">
+      <ng-container *ngFor="let item of category">
+        <div >
+
+             <div class="card mb-4 p-3 shadow-sm d-flex justify-content-between ">
+              <div><h2 class="fw-bold fonte-card  ">{{item.nameEN}}</h2></div>
+
+               <div class="mt-3 img-card">
+                <a routerLink="/Category/{{item.id}}">
+                 <img class=" img-card2" src="{{item.imageUrl}}" alt="">
+                </a>
+              </div>
+
+
+              <div class=""><a routerLink="/Category/{{item.id}}" class="card-a text-decoration-none">See more</a></div>
+             </div>
+           </div>
+             </ng-container>
+             <ng-container *ngFor="let item of prand">
+              <div class="  mt-5 mb-5">
+
+                   <div class="card mb-4 p-3 shadow-sm d-flex justify-content-between ">
+                    <div><h2 class="fw-bold fonte-card  ">{{item.nameEN}}</h2></div>
+
+                     <div class="mt-3 img-card">
+                      <a routerLink="/Category/{{item.id}}">
+                       <img class=" img-card2" src="{{item.imageUrl}}" alt="">
+                      </a>
+                    </div>
+
+
+                    <div class=""><a routerLink="/Category/{{item.id}}" class="card-a text-decoration-none">See more</a></div>
+                   </div>
+                 </div>
+                   </ng-container>
+
+    </div> -->
+
+
+
+    <!-- ////////////////////// -->
+<ng-container *ngFor="let item of category">
+ <div class="col-lg-3 col-md-4 col-sm-6 mt-5 mb-5">
+
+      <div class="card mb-4 p-3 shadow-sm d-flex justify-content-between ">
+       <div><h2 class="fw-bold fonte-card  ">{{item.nameEN}}</h2></div>
+
+        <div class="mt-3 img-card">
+         <a routerLink="/Category/{{item.id}}">
+          <img class=" img-card2" src="{{item.imageUrl}}" alt="">
+         </a>
+       </div>
+
+
+       <div class=""><a routerLink="/Category/{{item.id}}" class="card-a text-decoration-none">See more</a></div>
+      </div>
+    </div>
+      </ng-container>
+
+
+
+
+
+<!-- //////////////////////////////////////////// -->
+<ng-container *ngFor="let item of prand">
+  <div class="col-12  col-md-4 col-lg-3  mt-5 mb-5">
+
+       <div class="card mb-4 p-3 shadow-sm d-flex justify-content-between ">
+        <div><h2 class="fw-bold fonte-card  ">{{item.nameEN}}</h2></div>
+
+         <div class="mt-3 img-card">
+          <a routerLink="/Category/{{item.id}}">
+           <img class=" img-card2" src="{{item.imageUrl}}" alt="">
+          </a>
+        </div>
+
+
+        <div class=""><a routerLink="/Category/{{item.id}}" class="card-a text-decoration-none">See more</a></div>
+       </div>
+     </div>
+       </ng-container>
+
+
+  </div>
+
+
+
+
+
+
+</div>
